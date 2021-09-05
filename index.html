@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapas Estelares Proyecto Final Javascript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    
+    <!-- Encabezado y Menú de Navegación -->
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-dark miNavColor">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index.html"> <img src="./assets/img/logo.png" class="logoNav" alt="Logo"> </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link nav-fuente active" aria-current="page" href="index.html">INICIO</a>
+                                <a class="nav-link nav-fuente" href="index.html">MAPAS ESTELARES</a>
+                                <a class="nav-link nav-fuente" href="index.html">PREGUNTAS FRECUENTES</a>
+                                <a class="nav-link nav-fuente" href="index.html">TU MAPA</a>
+                                <a class="nav-link nav-fuente" href="index.html">CONTACTO</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--Contenido de la página-->
+    <div class="container">
+        <div class="mt-3 justify-content-end" id="dataUsuario"></div>
+        <div class="row" id="DatosPersonales">
+            <h1>Tu Mapa Estelar</h1>
+            <h2 class="subtitulos-tu-mapa">Ingresá tus Datos Personales</h2>
+            <form id="login" action="">
+                <div class="row mb-3 parrafos-3">
+                    <label for="nombre" class="col-md-3 col-form-label">Nombre:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                </div>
+                <div class="row mb-3 parrafos-3">
+                    <label for="apellido" class="col-md-3 col-form-label">Apellido:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" id="apellido" name="apellido">
+                    </div>
+                </div>
+                <div class="row mb-3 parrafos-3">
+                    <label for="email" class="col-md-3 col-form-label">Email:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email@email.com">
+                    </div>
+                </div>
+                <div class="estiloBoton">
+                    <button class="align-item-center btn boton" id="botonContinuar">Continuar</button>
+                </div>
+            </form>
+        </div>
+        <div class="mt-5" id="datosMapa">
+            <h2 class="subtitulos-tu-mapa mb-3">Ingresá los Datos para hacer el Mapa Estelar</h2>
+            <form id="mapa">
+               <div class="row form-group mb-3 parrafos-3">
+                    <label for="tipoIlustracion" class="col-form-label col-md-3" >Tipo de Ilustración:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <select class="form-control bg-white" id="tipoIlustracion">
+                            <option selected>Selecciona</option>
+                            <option value="Artesanal">Artesanal</option>
+                            <option value="Digital">Digital</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group mb-3 parrafos-3">
+                    <label for="tamano" class="col-form-label col-md-3" >Tamaño de la Ilustración:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12" id="selecTamano">
+                        <select class="form-control bg-white" id="tamano">
+                            <option value="0" selected>Selecciona</option>
+                            <option value="A4">A4</option>
+                            <option value="20x30">20x30 cm</option>
+                            <option value="30x40">30x40 cm</option>
+                        </select>
+                    </div>
+                    <div class="mt-5" id="refTamano">
+                        <p class="referencia">La ilustración Artesanal solo se hace en tamaño A4</p>
+                    </div>
+                </div>
+                <div class="row mb-3 parrafos-3">
+                    <label for="pais" class="col-md-3 col-form-label">País del Evento:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <select name="pais" class="form-control bg-white" id="pais">
+                            <option value="0" selected>Selecciona</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3 parrafos-3">
+                    <label for="ciudad" class="col-md-3 col-form-label">Ciudad del Evento:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" id="ciudad" name="ciudad">
+                    </div>
+                </div>
+                <div class="row mb-3 parrafos-3">
+                    <label for="fecha" class="col-md-3 col-form-label">Fecha del Evento:</label>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <input type="date" class="form-control" id="fecha" name="fecha">
+                    </div>
+                </div>
+                <div class="row form-group mb-3 parrafos-3" id="estilos">
+                    <label for="estilo" class="col-form-label col-md-3">Estilo:</label>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" name="estilo" value="Estilo 1" class="form-check-input" id="estilo1">
+                            <img class="estilos" src="./assets/img/estilo_1.jpg" alt="Estilo1">
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="estilo" value="Estilo 2" class="form-check-input" id="estilo2">
+                            <img class="estilos" src="./assets/img/estilo_2.jpg" alt="Estilo2">
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="estilo" value="Estilo 3" class="form-check-input" id="estilo3">
+                            <img class="estilos" src="./assets/img/estilo_3.jpg" alt="Estilo2">
+                        </label>
+                    </div>
+                </div>
+                <div class="row form-group mb-3 parrafos-3" id="colores">
+                    <label for="color" class="col-form-label col-md-3" id="color">Color de Fondo:</label>
+                    <div class="col-lg-6 col-sm-6 col-xs-12 form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" name="color" value="Negro" class="form-check-input" id="color1">
+                            <img class="estilos" src="./assets/img/muestra_fondo_4.jpg" alt="Estilo1">
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="color" value="Azul" class="form-check-input" id="color2">
+                            <img class="estilos" src="./assets/img/muestra_fondo_5.jpg" alt="Estilo2">
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" name="color" value="Petróleo" class="form-check-input" id="color3">
+                            <img class="estilos" src="./assets/img/muestra_fondo_7.jpg" alt="Estilo2">
+                        </label>
+                    </div>
+                </div>
+                <div class="estiloBoton">
+                    <button class="btn boton" id="botonFinalizar">Finalizar Pedido</button>
+                </div>
+            </form>
+        </div>
+        <div id="impresionFinal" class="impresionFinal">
+            <div id="seccionNasa"></div>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+
+    <footer>
+        <div class="pie">
+            <div class="pie-2">
+                <a href="index.html"><img class="footer_logo" src="./assets/img/logo.png" alt="Logo"></a>
+                <ul>
+                    <li><img class="email" src="./assets/img/email.svg" alt="email"> info@elcieloesedia.com</li>
+                    <li><img class="tele" src="./assets/img/telefono.svg" alt="telefono"> +5491112341234</li>
+                </ul>  
+            </div>
+            <div class="mis-redes">
+                <a href="https://es-la.facebook.com/" target="_blank"><img class="redes" src="./assets/img/logotipo_circular_facebook.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img class="redes" src="./assets/img/logotipo_instagram.svg" alt="Instagram"></a>
+                <a href="https://ar.pinterest.com/" target="_blank"><img class="redes" src="./assets/img/pinterest.svg" alt="Pinterest"></a>
+            </div>
+            <ul class="footer_lista">
+                <li><a class=footer_lista_texto href="index.html">Inicio</a></li>
+                <li><a class=footer_lista_texto href="index.html">Mapas Estelares</a></li>
+                <li><a class=footer_lista_texto href="index.html">Preguntas Frecuentes</a></li>
+                <li><a class=footer_lista_texto href="index.html">Tu Mapa</a></li>
+                <li><a class=footer_lista_texto href="index.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="pie-3">© elCieloeseDía 2021. Todos los derechos reservados</div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="assets/app.js"></script>
+</body>
+</html> 
